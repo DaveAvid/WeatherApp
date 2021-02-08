@@ -1,4 +1,5 @@
-package models;
+package com.orange.weather.models;
+
 import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -15,7 +16,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
         "icon",
         "text"
 })
-public class Condition_ {
+public class Condition__ {
 
     @JsonProperty("code")
     private int code;
@@ -30,7 +31,7 @@ public class Condition_ {
      * No args constructor for use in serialization
      *
      */
-    public Condition_() {
+    public Condition__() {
     }
 
     /**
@@ -39,7 +40,7 @@ public class Condition_ {
      * @param icon
      * @param text
      */
-    public Condition_(int code, String icon, String text) {
+    public Condition__(int code, String icon, String text) {
         super();
         this.code = code;
         this.icon = icon;
@@ -56,7 +57,7 @@ public class Condition_ {
         this.code = code;
     }
 
-    public Condition_ withCode(int code) {
+    public Condition__ withCode(int code) {
         this.code = code;
         return this;
     }
@@ -71,7 +72,7 @@ public class Condition_ {
         this.icon = icon;
     }
 
-    public Condition_ withIcon(String icon) {
+    public Condition__ withIcon(String icon) {
         this.icon = icon;
         return this;
     }
@@ -86,7 +87,7 @@ public class Condition_ {
         this.text = text;
     }
 
-    public Condition_ withText(String text) {
+    public Condition__ withText(String text) {
         this.text = text;
         return this;
     }
@@ -101,7 +102,7 @@ public class Condition_ {
         this.additionalProperties.put(name, value);
     }
 
-    public Condition_ withAdditionalProperty(String name, Object value) {
+    public Condition__ withAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
         return this;
     }

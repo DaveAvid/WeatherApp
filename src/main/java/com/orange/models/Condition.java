@@ -1,4 +1,4 @@
-package models;
+package com.orange.weather.models;
 
 import com.fasterxml.jackson.annotation.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;

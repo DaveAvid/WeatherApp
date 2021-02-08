@@ -1,4 +1,4 @@
-package controllers;
+package com.orange.weather.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-public class FXMLController implements Initializable {
+public class controller implements Initializable {
 
     @FXML
     private Label lblOut;
@@ -20,5 +20,8 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    public void handleButtonClicks(ActionEvent actionEvent) {
     }
 }

@@ -1,9 +1,9 @@
-package com.orange.weather.services;
+package com.orange.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.orange.weather.models.Current;
-import com.orange.weather.models.Forecast;
-import com.orange.weather.models.Location;
+import com.orange.models.Current;
+import com.orange.models.Forecast;
+import com.orange.models.Location;
 import org.json.JSONException;
 import org.json.JSONObject;
 

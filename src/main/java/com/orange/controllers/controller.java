@@ -1,4 +1,4 @@
-package com.orange.weather.controllers;
+package com.orange.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

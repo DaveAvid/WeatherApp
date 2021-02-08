@@ -1,4 +1,4 @@
-package com.orange.weather.models;
+package com.orange.models;
 
 import java.util.HashMap;
 import java.util.List;

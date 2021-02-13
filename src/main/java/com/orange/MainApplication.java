@@ -1,6 +1,7 @@
 package com.orange;
 
 
+import com.orange.services.WeatherService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +11,8 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-//        WeatherService weatherService = new WeatherService();
-//        weatherService.weatherConnection("Minneapolis");
+        WeatherService weatherService = new WeatherService();
+        weatherService.weatherConnection("Minneapolis");
         try{
             Parent root = FXMLLoader.load(MainApplication.class.getResource("/fxml/primary.fxml"));
 

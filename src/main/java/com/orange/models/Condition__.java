@@ -2,6 +2,7 @@ package com.orange.models;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,13 +30,11 @@ public class Condition__ {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Condition__() {
     }
 
     /**
-     *
      * @param code
      * @param icon
      * @param text
@@ -57,11 +56,6 @@ public class Condition__ {
         this.code = code;
     }
 
-    public Condition__ withCode(int code) {
-        this.code = code;
-        return this;
-    }
-
     @JsonProperty("icon")
     public String getIcon() {
         return icon;
@@ -72,11 +66,6 @@ public class Condition__ {
         this.icon = icon;
     }
 
-    public Condition__ withIcon(String icon) {
-        this.icon = icon;
-        return this;
-    }
-
     @JsonProperty("text")
     public String getText() {
         return text;
@@ -85,11 +74,6 @@ public class Condition__ {
     @JsonProperty("text")
     public void setText(String text) {
         this.text = text;
-    }
-
-    public Condition__ withText(String text) {
-        this.text = text;
-        return this;
     }
 
     @JsonAnyGetter

@@ -2,6 +2,7 @@ package com.orange.models;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -44,13 +45,11 @@ public class Location {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Location() {
     }
 
     /**
-     *
      * @param localtime
      * @param country
      * @param localtimeEpoch
@@ -82,11 +81,6 @@ public class Location {
         this.localtime = localtime;
     }
 
-    public Location withLocaltime(String localtime) {
-        this.localtime = localtime;
-        return this;
-    }
-
     @JsonProperty("country")
     public String getCountry() {
         return country;
@@ -95,11 +89,6 @@ public class Location {
     @JsonProperty("country")
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public Location withCountry(String country) {
-        this.country = country;
-        return this;
     }
 
     @JsonProperty("localtime_epoch")
@@ -112,11 +101,6 @@ public class Location {
         this.localtimeEpoch = localtimeEpoch;
     }
 
-    public Location withLocaltimeEpoch(int localtimeEpoch) {
-        this.localtimeEpoch = localtimeEpoch;
-        return this;
-    }
-
     @JsonProperty("name")
     public String getName() {
         return name;
@@ -125,11 +109,6 @@ public class Location {
     @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Location withName(String name) {
-        this.name = name;
-        return this;
     }
 
     @JsonProperty("lon")
@@ -142,11 +121,6 @@ public class Location {
         this.lon = lon;
     }
 
-    public Location withLon(double lon) {
-        this.lon = lon;
-        return this;
-    }
-
     @JsonProperty("region")
     public String getRegion() {
         return region;
@@ -155,11 +129,6 @@ public class Location {
     @JsonProperty("region")
     public void setRegion(String region) {
         this.region = region;
-    }
-
-    public Location withRegion(String region) {
-        this.region = region;
-        return this;
     }
 
     @JsonProperty("lat")
@@ -172,11 +141,6 @@ public class Location {
         this.lat = lat;
     }
 
-    public Location withLat(double lat) {
-        this.lat = lat;
-        return this;
-    }
-
     @JsonProperty("tz_id")
     public String getTzId() {
         return tzId;
@@ -185,11 +149,6 @@ public class Location {
     @JsonProperty("tz_id")
     public void setTzId(String tzId) {
         this.tzId = tzId;
-    }
-
-    public Location withTzId(String tzId) {
-        this.tzId = tzId;
-        return this;
     }
 
     @JsonAnyGetter

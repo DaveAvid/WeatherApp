@@ -19,15 +19,15 @@ public class WeatherService {
         String forecastUrl = "http://api.weatherapi.com/v1/forecast.json?key=bc8fcd2f89d248fb93c162946202810&q=Rochester,MN&days=7";
         String currentUrl = "http://api.weatherapi.com/v1/forecast.json?key=bc8fcd2f89d248fb93c162946202810&q=" + cityState + "&days=7";
         json = readJsonFromUrl(currentUrl);
-        Astro astro = objectMapper.readValue(json.optString("astro"), Astro.class);
-        Condition condition = objectMapper.readValue(json.optString("condition"), Condition.class);
-        Condition_ condition_ = objectMapper.readValue(json.optString("condition_"), Condition_.class);
-        Condition__ condition__ = objectMapper.readValue(json.optString("condition__"), Condition__.class);
-        Current current = objectMapper.readValue(json.optString("current"), Current.class);
-        Day day = objectMapper.readValue(json.getString("day"), Day.class);
-        Forecast forecast = objectMapper.readValue(json.optString("forecast"), Forecast.class);
-        Forecastday forecastday = objectMapper.readValue(json.optString("forecastday"), Forecastday.class);
-        Hour hour = objectMapper.readValue(json.optString("hour"), Hour.class);
+//        Astro astro = objectMapper.readValue(json.optString("astro"), Astro.class);
+//        Condition condition = objectMapper.readValue(json.optString("condition"), Condition.class);
+//        Condition_ condition_ = objectMapper.readValue(json.optString("condition_"), Condition_.class);
+//        Condition__ condition__ = objectMapper.readValue(json.optString("condition__"), Condition__.class);
+//        Current current = objectMapper.readValue(json.optString("current"), Current.class);
+//        Day day = objectMapper.readValue(json.getString("day"), Day.class);
+//        Forecast forecast = objectMapper.readValue(json.optString("forecast"), Forecast.class);
+//        Forecastday forecastday = objectMapper.readValue(json.optString("forecastday"), Forecastday.class);
+//        Hour hour = objectMapper.readValue(json.optString("hour"), Hour.class);
         Location location = objectMapper.readValue(json.optString("location"), Location.class);
 
         //Print to show what is being held by each object

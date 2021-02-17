@@ -25,13 +25,11 @@ public class Condition {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Condition() {
     }
 
     /**
-     *
      * @param code
      * @param icon
      * @param text
@@ -53,11 +51,6 @@ public class Condition {
         this.code = code;
     }
 
-    public Condition withCode(int code) {
-        this.code = code;
-        return this;
-    }
-
     @JsonProperty("icon")
     public String getIcon() {
         return icon;
@@ -68,11 +61,6 @@ public class Condition {
         this.icon = icon;
     }
 
-    public Condition withIcon(String icon) {
-        this.icon = icon;
-        return this;
-    }
-
     @JsonProperty("text")
     public String getText() {
         return text;
@@ -81,11 +69,6 @@ public class Condition {
     @JsonProperty("text")
     public void setText(String text) {
         this.text = text;
-    }
-
-    public Condition withText(String text) {
-        this.text = text;
-        return this;
     }
 
     @JsonAnyGetter

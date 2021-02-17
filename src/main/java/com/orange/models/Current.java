@@ -2,6 +2,7 @@ package com.orange.models;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -89,13 +90,11 @@ public class Current {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Current() {
     }
 
     /**
-     *
      * @param tempF
      * @param precipMm
      * @param uv
@@ -157,11 +156,6 @@ public class Current {
         this.feelslikeC = feelslikeC;
     }
 
-    public Current withFeelslikeC(double feelslikeC) {
-        this.feelslikeC = feelslikeC;
-        return this;
-    }
-
     @JsonProperty("uv")
     public int getUv() {
         return uv;
@@ -170,11 +164,6 @@ public class Current {
     @JsonProperty("uv")
     public void setUv(int uv) {
         this.uv = uv;
-    }
-
-    public Current withUv(int uv) {
-        this.uv = uv;
-        return this;
     }
 
     @JsonProperty("last_updated")
@@ -187,11 +176,6 @@ public class Current {
         this.lastUpdated = lastUpdated;
     }
 
-    public Current withLastUpdated(String lastUpdated) {
-        this.lastUpdated = lastUpdated;
-        return this;
-    }
-
     @JsonProperty("feelslike_f")
     public double getFeelslikeF() {
         return feelslikeF;
@@ -200,11 +184,6 @@ public class Current {
     @JsonProperty("feelslike_f")
     public void setFeelslikeF(double feelslikeF) {
         this.feelslikeF = feelslikeF;
-    }
-
-    public Current withFeelslikeF(double feelslikeF) {
-        this.feelslikeF = feelslikeF;
-        return this;
     }
 
     @JsonProperty("wind_degree")
@@ -217,11 +196,6 @@ public class Current {
         this.windDegree = windDegree;
     }
 
-    public Current withWindDegree(int windDegree) {
-        this.windDegree = windDegree;
-        return this;
-    }
-
     @JsonProperty("last_updated_epoch")
     public int getLastUpdatedEpoch() {
         return lastUpdatedEpoch;
@@ -230,11 +204,6 @@ public class Current {
     @JsonProperty("last_updated_epoch")
     public void setLastUpdatedEpoch(int lastUpdatedEpoch) {
         this.lastUpdatedEpoch = lastUpdatedEpoch;
-    }
-
-    public Current withLastUpdatedEpoch(int lastUpdatedEpoch) {
-        this.lastUpdatedEpoch = lastUpdatedEpoch;
-        return this;
     }
 
     @JsonProperty("is_day")
@@ -247,11 +216,6 @@ public class Current {
         this.isDay = isDay;
     }
 
-    public Current withIsDay(int isDay) {
-        this.isDay = isDay;
-        return this;
-    }
-
     @JsonProperty("precip_in")
     public int getPrecipIn() {
         return precipIn;
@@ -260,11 +224,6 @@ public class Current {
     @JsonProperty("precip_in")
     public void setPrecipIn(int precipIn) {
         this.precipIn = precipIn;
-    }
-
-    public Current withPrecipIn(int precipIn) {
-        this.precipIn = precipIn;
-        return this;
     }
 
     @JsonProperty("wind_dir")
@@ -277,11 +236,6 @@ public class Current {
         this.windDir = windDir;
     }
 
-    public Current withWindDir(String windDir) {
-        this.windDir = windDir;
-        return this;
-    }
-
     @JsonProperty("gust_mph")
     public double getGustMph() {
         return gustMph;
@@ -290,11 +244,6 @@ public class Current {
     @JsonProperty("gust_mph")
     public void setGustMph(double gustMph) {
         this.gustMph = gustMph;
-    }
-
-    public Current withGustMph(double gustMph) {
-        this.gustMph = gustMph;
-        return this;
     }
 
     @JsonProperty("temp_c")
@@ -307,11 +256,6 @@ public class Current {
         this.tempC = tempC;
     }
 
-    public Current withTempC(double tempC) {
-        this.tempC = tempC;
-        return this;
-    }
-
     @JsonProperty("pressure_in")
     public double getPressureIn() {
         return pressureIn;
@@ -320,11 +264,6 @@ public class Current {
     @JsonProperty("pressure_in")
     public void setPressureIn(double pressureIn) {
         this.pressureIn = pressureIn;
-    }
-
-    public Current withPressureIn(double pressureIn) {
-        this.pressureIn = pressureIn;
-        return this;
     }
 
     @JsonProperty("gust_kph")
@@ -337,11 +276,6 @@ public class Current {
         this.gustKph = gustKph;
     }
 
-    public Current withGustKph(double gustKph) {
-        this.gustKph = gustKph;
-        return this;
-    }
-
     @JsonProperty("temp_f")
     public int getTempF() {
         return tempF;
@@ -350,11 +284,6 @@ public class Current {
     @JsonProperty("temp_f")
     public void setTempF(int tempF) {
         this.tempF = tempF;
-    }
-
-    public Current withTempF(int tempF) {
-        this.tempF = tempF;
-        return this;
     }
 
     @JsonProperty("precip_mm")
@@ -367,11 +296,6 @@ public class Current {
         this.precipMm = precipMm;
     }
 
-    public Current withPrecipMm(int precipMm) {
-        this.precipMm = precipMm;
-        return this;
-    }
-
     @JsonProperty("cloud")
     public int getCloud() {
         return cloud;
@@ -380,11 +304,6 @@ public class Current {
     @JsonProperty("cloud")
     public void setCloud(int cloud) {
         this.cloud = cloud;
-    }
-
-    public Current withCloud(int cloud) {
-        this.cloud = cloud;
-        return this;
     }
 
     @JsonProperty("wind_kph")
@@ -397,11 +316,6 @@ public class Current {
         this.windKph = windKph;
     }
 
-    public Current withWindKph(double windKph) {
-        this.windKph = windKph;
-        return this;
-    }
-
     @JsonProperty("condition")
     public Condition getCondition() {
         return condition;
@@ -410,11 +324,6 @@ public class Current {
     @JsonProperty("condition")
     public void setCondition(Condition condition) {
         this.condition = condition;
-    }
-
-    public Current withCondition(Condition condition) {
-        this.condition = condition;
-        return this;
     }
 
     @JsonProperty("wind_mph")
@@ -427,11 +336,6 @@ public class Current {
         this.windMph = windMph;
     }
 
-    public Current withWindMph(double windMph) {
-        this.windMph = windMph;
-        return this;
-    }
-
     @JsonProperty("vis_km")
     public double getVisKm() {
         return visKm;
@@ -440,11 +344,6 @@ public class Current {
     @JsonProperty("vis_km")
     public void setVisKm(double visKm) {
         this.visKm = visKm;
-    }
-
-    public Current withVisKm(double visKm) {
-        this.visKm = visKm;
-        return this;
     }
 
     @JsonProperty("humidity")
@@ -457,11 +356,6 @@ public class Current {
         this.humidity = humidity;
     }
 
-    public Current withHumidity(int humidity) {
-        this.humidity = humidity;
-        return this;
-    }
-
     @JsonProperty("pressure_mb")
     public int getPressureMb() {
         return pressureMb;
@@ -472,11 +366,6 @@ public class Current {
         this.pressureMb = pressureMb;
     }
 
-    public Current withPressureMb(int pressureMb) {
-        this.pressureMb = pressureMb;
-        return this;
-    }
-
     @JsonProperty("vis_miles")
     public int getVisMiles() {
         return visMiles;
@@ -485,11 +374,6 @@ public class Current {
     @JsonProperty("vis_miles")
     public void setVisMiles(int visMiles) {
         this.visMiles = visMiles;
-    }
-
-    public Current withVisMiles(int visMiles) {
-        this.visMiles = visMiles;
-        return this;
     }
 
     @JsonAnyGetter

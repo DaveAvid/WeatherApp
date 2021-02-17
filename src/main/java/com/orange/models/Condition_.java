@@ -56,11 +56,6 @@ public class Condition_ {
         this.code = code;
     }
 
-    public Condition_ withCode(int code) {
-        this.code = code;
-        return this;
-    }
-
     @JsonProperty("icon")
     public String getIcon() {
         return icon;
@@ -71,11 +66,6 @@ public class Condition_ {
         this.icon = icon;
     }
 
-    public Condition_ withIcon(String icon) {
-        this.icon = icon;
-        return this;
-    }
-
     @JsonProperty("text")
     public String getText() {
         return text;
@@ -84,11 +74,6 @@ public class Condition_ {
     @JsonProperty("text")
     public void setText(String text) {
         this.text = text;
-    }
-
-    public Condition_ withText(String text) {
-        this.text = text;
-        return this;
     }
 
     @JsonAnyGetter

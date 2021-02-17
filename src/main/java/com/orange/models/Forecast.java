@@ -48,10 +48,6 @@ public class Forecast {
         this.forecastday = forecastday;
     }
 
-    public Forecast withForecastday(List<Forecastday> forecastday) {
-        this.forecastday = forecastday;
-        return this;
-    }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {

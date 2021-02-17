@@ -2,6 +2,7 @@ package com.orange.models;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -77,13 +78,11 @@ public class Day {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Day() {
     }
 
     /**
-     *
      * @param uv
      * @param dailyWillItRain
      * @param dailyChanceOfRain
@@ -137,11 +136,6 @@ public class Day {
         this.avgvisKm = avgvisKm;
     }
 
-    public Day withAvgvisKm(double avgvisKm) {
-        this.avgvisKm = avgvisKm;
-        return this;
-    }
-
     @JsonProperty("uv")
     public int getUv() {
         return uv;
@@ -150,11 +144,6 @@ public class Day {
     @JsonProperty("uv")
     public void setUv(int uv) {
         this.uv = uv;
-    }
-
-    public Day withUv(int uv) {
-        this.uv = uv;
-        return this;
     }
 
     @JsonProperty("avgtemp_f")
@@ -167,11 +156,6 @@ public class Day {
         this.avgtempF = avgtempF;
     }
 
-    public Day withAvgtempF(double avgtempF) {
-        this.avgtempF = avgtempF;
-        return this;
-    }
-
     @JsonProperty("avgtemp_c")
     public double getAvgtempC() {
         return avgtempC;
@@ -180,11 +164,6 @@ public class Day {
     @JsonProperty("avgtemp_c")
     public void setAvgtempC(double avgtempC) {
         this.avgtempC = avgtempC;
-    }
-
-    public Day withAvgtempC(double avgtempC) {
-        this.avgtempC = avgtempC;
-        return this;
     }
 
     @JsonProperty("daily_chance_of_snow")
@@ -197,11 +176,6 @@ public class Day {
         this.dailyChanceOfSnow = dailyChanceOfSnow;
     }
 
-    public Day withDailyChanceOfSnow(String dailyChanceOfSnow) {
-        this.dailyChanceOfSnow = dailyChanceOfSnow;
-        return this;
-    }
-
     @JsonProperty("maxtemp_c")
     public double getMaxtempC() {
         return maxtempC;
@@ -210,11 +184,6 @@ public class Day {
     @JsonProperty("maxtemp_c")
     public void setMaxtempC(double maxtempC) {
         this.maxtempC = maxtempC;
-    }
-
-    public Day withMaxtempC(double maxtempC) {
-        this.maxtempC = maxtempC;
-        return this;
     }
 
     @JsonProperty("maxtemp_f")
@@ -227,11 +196,6 @@ public class Day {
         this.maxtempF = maxtempF;
     }
 
-    public Day withMaxtempF(double maxtempF) {
-        this.maxtempF = maxtempF;
-        return this;
-    }
-
     @JsonProperty("mintemp_c")
     public double getMintempC() {
         return mintempC;
@@ -240,11 +204,6 @@ public class Day {
     @JsonProperty("mintemp_c")
     public void setMintempC(double mintempC) {
         this.mintempC = mintempC;
-    }
-
-    public Day withMintempC(double mintempC) {
-        this.mintempC = mintempC;
-        return this;
     }
 
     @JsonProperty("avgvis_miles")
@@ -257,11 +216,6 @@ public class Day {
         this.avgvisMiles = avgvisMiles;
     }
 
-    public Day withAvgvisMiles(int avgvisMiles) {
-        this.avgvisMiles = avgvisMiles;
-        return this;
-    }
-
     @JsonProperty("daily_will_it_rain")
     public int getDailyWillItRain() {
         return dailyWillItRain;
@@ -270,11 +224,6 @@ public class Day {
     @JsonProperty("daily_will_it_rain")
     public void setDailyWillItRain(int dailyWillItRain) {
         this.dailyWillItRain = dailyWillItRain;
-    }
-
-    public Day withDailyWillItRain(int dailyWillItRain) {
-        this.dailyWillItRain = dailyWillItRain;
-        return this;
     }
 
     @JsonProperty("mintemp_f")
@@ -287,11 +236,6 @@ public class Day {
         this.mintempF = mintempF;
     }
 
-    public Day withMintempF(double mintempF) {
-        this.mintempF = mintempF;
-        return this;
-    }
-
     @JsonProperty("totalprecip_in")
     public double getTotalprecipIn() {
         return totalprecipIn;
@@ -300,11 +244,6 @@ public class Day {
     @JsonProperty("totalprecip_in")
     public void setTotalprecipIn(double totalprecipIn) {
         this.totalprecipIn = totalprecipIn;
-    }
-
-    public Day withTotalprecipIn(double totalprecipIn) {
-        this.totalprecipIn = totalprecipIn;
-        return this;
     }
 
     @JsonProperty("avghumidity")
@@ -317,11 +256,6 @@ public class Day {
         this.avghumidity = avghumidity;
     }
 
-    public Day withAvghumidity(int avghumidity) {
-        this.avghumidity = avghumidity;
-        return this;
-    }
-
     @JsonProperty("condition")
     public Condition__ getCondition() {
         return condition;
@@ -330,11 +264,6 @@ public class Day {
     @JsonProperty("condition")
     public void setCondition(Condition__ condition) {
         this.condition = condition;
-    }
-
-    public Day withCondition(Condition__ condition) {
-        this.condition = condition;
-        return this;
     }
 
     @JsonProperty("maxwind_kph")
@@ -347,11 +276,6 @@ public class Day {
         this.maxwindKph = maxwindKph;
     }
 
-    public Day withMaxwindKph(double maxwindKph) {
-        this.maxwindKph = maxwindKph;
-        return this;
-    }
-
     @JsonProperty("maxwind_mph")
     public double getMaxwindMph() {
         return maxwindMph;
@@ -362,10 +286,6 @@ public class Day {
         this.maxwindMph = maxwindMph;
     }
 
-    public Day withMaxwindMph(double maxwindMph) {
-        this.maxwindMph = maxwindMph;
-        return this;
-    }
 
     @JsonProperty("daily_chance_of_rain")
     public String getDailyChanceOfRain() {
@@ -377,10 +297,6 @@ public class Day {
         this.dailyChanceOfRain = dailyChanceOfRain;
     }
 
-    public Day withDailyChanceOfRain(String dailyChanceOfRain) {
-        this.dailyChanceOfRain = dailyChanceOfRain;
-        return this;
-    }
 
     @JsonProperty("totalprecip_mm")
     public double getTotalprecipMm() {
@@ -392,10 +308,6 @@ public class Day {
         this.totalprecipMm = totalprecipMm;
     }
 
-    public Day withTotalprecipMm(double totalprecipMm) {
-        this.totalprecipMm = totalprecipMm;
-        return this;
-    }
 
     @JsonProperty("daily_will_it_snow")
     public int getDailyWillItSnow() {
@@ -407,10 +319,6 @@ public class Day {
         this.dailyWillItSnow = dailyWillItSnow;
     }
 
-    public Day withDailyWillItSnow(int dailyWillItSnow) {
-        this.dailyWillItSnow = dailyWillItSnow;
-        return this;
-    }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {

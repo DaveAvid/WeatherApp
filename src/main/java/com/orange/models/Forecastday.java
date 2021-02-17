@@ -3,6 +3,7 @@ package com.orange.models;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,13 +37,11 @@ public class Forecastday {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Forecastday() {
     }
 
     /**
-     *
      * @param date
      * @param dateEpoch
      * @param astro
@@ -68,11 +67,6 @@ public class Forecastday {
         this.date = date;
     }
 
-    public Forecastday withDate(String date) {
-        this.date = date;
-        return this;
-    }
-
     @JsonProperty("astro")
     public Astro getAstro() {
         return astro;
@@ -81,11 +75,6 @@ public class Forecastday {
     @JsonProperty("astro")
     public void setAstro(Astro astro) {
         this.astro = astro;
-    }
-
-    public Forecastday withAstro(Astro astro) {
-        this.astro = astro;
-        return this;
     }
 
     @JsonProperty("date_epoch")
@@ -98,11 +87,6 @@ public class Forecastday {
         this.dateEpoch = dateEpoch;
     }
 
-    public Forecastday withDateEpoch(int dateEpoch) {
-        this.dateEpoch = dateEpoch;
-        return this;
-    }
-
     @JsonProperty("hour")
     public List<Hour> getHour() {
         return hour;
@@ -113,10 +97,6 @@ public class Forecastday {
         this.hour = hour;
     }
 
-    public Forecastday withHour(List<Hour> hour) {
-        this.hour = hour;
-        return this;
-    }
 
     @JsonProperty("day")
     public Day getDay() {
@@ -126,11 +106,6 @@ public class Forecastday {
     @JsonProperty("day")
     public void setDay(Day day) {
         this.day = day;
-    }
-
-    public Forecastday withDay(Day day) {
-        this.day = day;
-        return this;
     }
 
     @JsonAnyGetter

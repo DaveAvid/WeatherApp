@@ -1,19 +1,20 @@
 package com.orange;
 
 
-import com.orange.services.WeatherService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+
 public class MainApplication extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        WeatherService weatherService = new WeatherService();
-        weatherService.weatherConnection("Minneapolis");
-        try{
+    public void start(Stage primaryStage) throws Exception {
+
+        try {
             Parent root = FXMLLoader.load(MainApplication.class.getResource("/fxml/primary.fxml"));
 
             primaryStage.setTitle("Weather");
@@ -25,12 +26,12 @@ public class MainApplication extends Application {
             primaryStage.setResizable(false);
             primaryStage.sizeToScene();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         launch(args);
     }
 }

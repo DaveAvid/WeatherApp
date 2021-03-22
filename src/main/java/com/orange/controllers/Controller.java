@@ -6,6 +6,7 @@ import com.orange.models.WeatherService;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
 
     WeatherService weatherService;
     String citySet;
@@ -38,16 +39,16 @@ public class Controller {
 
     //Event Handler for each button
     @FXML
-    private void handleButtonClicks(javafx.event.ActionEvent ae) {
+    private void handleButtonClicks(javafx.event.ActionEvent actionEvent) {
         String initialCity = city.getText(); //stores the last searched city-name
 
-        if (ae.getSource() == change) {
+        if (actionEvent.getSource() == change) {
             cityName.setText("");
             bottomSet(true);
             cityName.requestFocus();
-        } else if (ae.getSource() == set) {
+        } else if (actionEvent.getSource() == set) {
             setPressed();
-        } else if (ae.getSource() == cancel) {
+        } else if (actionEvent.getSource() == cancel) {
             cityName.setText(initialCity);
             bottomSet(false);
             invis.requestFocus();

@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,7 +28,11 @@ public class WeatherService {
 
     public void getWeatherConnection() throws IOException {
         int day = 0;
+        String apiBase = "http://api.openweathermap.org/data/2.5/weather?q=";
         String apiKey = "ad72e9d8b12ec118ba1fbd72827337fd";
+        String units = "imperial";
+        String lang = "en";
+
 
         JSONObject json;
         JSONObject specificJson;
@@ -37,7 +42,9 @@ public class WeatherService {
 
         //Connects to the API to the json file
         try {
-            json = readJsonFromUrl("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ad72e9d8b12ec118ba1fbd72827337fd");
+            String apiUrl = apiBase + URLEncoder.encode(city, "utf-8") + "&appid=" + apiKey + "&mode=json&units=" + units + "&lang=" + lang;
+            System.out.println(apiUrl);
+            json = readJsonFromUrl(apiUrl);
         } catch (Exception e) {
             return;
         }
@@ -87,6 +94,10 @@ public class WeatherService {
 
     public String getCity() {
         return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getDescription() {

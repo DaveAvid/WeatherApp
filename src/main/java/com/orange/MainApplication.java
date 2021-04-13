@@ -11,7 +11,8 @@ import java.io.IOException;
 
 public class MainApplication extends Application {
 
-    @Override
+    @SuppressWarnings("restriction")
+	@Override
     public void start(Stage primaryStage) throws Exception {
 
         try {
@@ -31,7 +32,8 @@ public class MainApplication extends Application {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    @SuppressWarnings("restriction")
+	public static void main(String[] args) throws IOException {
         launch(args);
     }
 }

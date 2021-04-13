@@ -29,12 +29,12 @@ public class Controller implements Initializable {
     @FXML
     private JFXTextField cityName, invis;
     @FXML
-    private Label city, temperature, day, desc, errors, windSpeed, cloudiness, pressure, humidity;
+    private Label city, temperature, day, description, errors, windSpeed, cloudiness, pressure, humidity;
 
 
     //Constructor to set the initial city to Minneapolis
     public Controller() {
-        this.citySet = "Minneapolis".toUpperCase();
+        this.citySet = "Rochester".toUpperCase();
     }
 
     //Event Handler for each button
@@ -60,7 +60,7 @@ public class Controller implements Initializable {
         bottomSet(false);
         day.setText("");
         temperature.setText("");
-        desc.setText("");
+        description.setText("");
         windSpeed.setText("");
         cloudiness.setText("");
         pressure.setText("");
@@ -77,8 +77,9 @@ public class Controller implements Initializable {
         } else {
             try {
                 errors.setText("");
-                this.citySet = cityName.getText().trim();
-                cityName.setText((cityName.getText().trim()).toUpperCase());
+                this.citySet = cityName.getText().trim().toUpperCase();
+                weatherService.setCity(this.citySet);
+                cityName.setText((this.citySet.toUpperCase()));
                 weatherService.getWeatherConnection();
                 showWeather();
                 bottomSet(false);
@@ -130,7 +131,7 @@ public class Controller implements Initializable {
         city.setText(weatherService.getCity().toUpperCase());
         temperature.setText(weatherService.getTemperature() + "°F");
         day.setText(weatherService.getDay().toUpperCase());
-        desc.setText(weatherService.getDescription().toUpperCase());
+        description.setText(weatherService.getDescription().toUpperCase());
 //        img.setImage(new Image(ImageHandler.getImage(weatherService.getIcon())));
         windSpeed.setText(weatherService.getWindSpeed() + " m/s");
         cloudiness.setText(weatherService.getCloudiness() + "%");

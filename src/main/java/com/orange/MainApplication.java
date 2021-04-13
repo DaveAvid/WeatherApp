@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class MainApplication extends Application {
 
     @SuppressWarnings("restriction")
-	@Override
+    @Override
     public void start(Stage primaryStage) throws Exception {
 
         try {
@@ -20,7 +21,7 @@ public class MainApplication extends Application {
 
             primaryStage.setTitle("Weather");
 
-//            primaryStage.getIcons().add(new Image("/images/icon.png"));
+            primaryStage.getIcons().add(new Image("/images/icon.png"));
             primaryStage.setScene(new Scene(root, 1050, 670));
             primaryStage.getScene().getStylesheets().addAll(MainApplication.class.getResource("/styles/style.css").toExternalForm());
             primaryStage.show();
@@ -33,7 +34,7 @@ public class MainApplication extends Application {
     }
 
     @SuppressWarnings("restriction")
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         launch(args);
     }
 }

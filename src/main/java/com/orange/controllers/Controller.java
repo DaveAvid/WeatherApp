@@ -2,12 +2,14 @@ package com.orange.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.orange.models.ImageManager;
 import com.orange.models.WeatherService;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -132,7 +134,7 @@ public class Controller implements Initializable {
         temperature.setText(weatherService.getTemperature() + "°F");
         day.setText(weatherService.getDay().toUpperCase());
         description.setText(weatherService.getDescription().toUpperCase());
-//        img.setImage(new Image(ImageHandler.getImage(weatherService.getIcon())));
+        img.setImage(new Image(ImageManager.getImage(weatherService.getIcon())));
         windSpeed.setText(weatherService.getWindSpeed() + " m/s");
         cloudiness.setText(weatherService.getCloudiness() + "%");
         pressure.setText(weatherService.getPressure() + " hpa");

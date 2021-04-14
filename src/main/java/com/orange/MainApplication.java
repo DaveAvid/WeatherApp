@@ -21,7 +21,7 @@ public class MainApplication extends Application {
             primaryStage.setTitle("Weather");
 
 //            primaryStage.getIcons().add(new Image("/images/icon.png"));
-            primaryStage.setScene(new Scene(root, 1050, 670));
+            primaryStage.setScene(new Scene(root, 1050, 970));
             primaryStage.getScene().getStylesheets().addAll(MainApplication.class.getResource("/styles/style.css").toExternalForm());
             primaryStage.show();
             primaryStage.setResizable(false);

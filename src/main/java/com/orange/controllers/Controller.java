@@ -2,6 +2,7 @@ package com.orange.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.orange.models.ForecastService;
 import com.orange.models.ImageManager;
 import com.orange.models.WeatherService;
 import javafx.animation.FadeTransition;
@@ -15,23 +16,24 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
+    ForecastService forecastService;
     WeatherService weatherService;
     String citySet;
 
     @FXML
-    private ImageView img;
+    private ImageView img, forecastImg;
     @FXML
     private JFXButton change, set, cancel;
     @FXML
     private JFXTextField cityName, invis;
     @FXML
     private Label city, temperature, day, description, errors, windSpeed, cloudiness, pressure, humidity;
+    @FXML
+    private Label forecastCity, forecastDay, forecastTemperature, forecastDescription;
 
 
     //Constructor to set the initial city to Minneapolis
@@ -70,6 +72,15 @@ public class Controller implements Initializable {
         img.setImage(null);
     }
 
+    //method to clear all the fields
+    private void resetForecast() {
+        bottomSet(false);
+        forecastDay.setText("");
+        forecastTemperature.setText("");
+        forecastDescription.setText("");
+        forecastImg.setImage(null);
+    }
+
     //method to set the new entered city
     private void setPressed() {
         //if user enters nothing into cityName field
@@ -83,7 +94,9 @@ public class Controller implements Initializable {
                 weatherService.setCity(this.citySet);
                 cityName.setText((this.citySet.toUpperCase()));
                 weatherService.getWeatherConnection();
+                forecastService.getForecastConnection();
                 showWeather();
+                showForecast();
                 bottomSet(false);
                 invis.requestFocus();
             } catch (Exception e) {
@@ -91,6 +104,7 @@ public class Controller implements Initializable {
                 city.setTextFill(Color.TOMATO);
                 showToast("City with the given name was not found.");
                 reset();
+                resetForecast();
                 invis.requestFocus();
             }
         }
@@ -127,8 +141,8 @@ public class Controller implements Initializable {
         });
     }
 
-    //    //actual method to call and get the weather and populate the scene
-    private void showWeather() throws IOException {
+    //actual method to call and get the weather and populate the scene
+    private void showWeather() {
         weatherService.getWeatherConnection();
         city.setText(weatherService.getCity().toUpperCase());
         temperature.setText(weatherService.getTemperature() + "°F");
@@ -141,6 +155,14 @@ public class Controller implements Initializable {
         humidity.setText(weatherService.getHumidity() + "%");
     }
 
+    public void showForecast() {
+        forecastService.getForecastConnection();
+        forecastTemperature.setText(forecastService.getTemperature() + "°F");
+        forecastDay.setText(forecastService.getSpecificDay());
+        forecastDescription.setText(forecastService.getDescription().toUpperCase());
+        forecastImg.setImage(new Image(ImageManager.getImage(forecastService.getIcon())));
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
         cityName.setText(citySet);
         cityName.setDisable(true);
@@ -148,16 +170,19 @@ public class Controller implements Initializable {
         cancel.setVisible(false);
         errors.setText("");
         weatherService = new WeatherService(citySet);
+        forecastService = new ForecastService(citySet);
         invis.requestFocus();
 
         //try catch block to see if there is internet and disabling every field
         try {
             showWeather();
+            showForecast();
         } catch (Exception e) {
             city.setText("Error!! - No Internet");
             city.setTextFill(Color.TOMATO);
             showToast("Internet Down. Please Connect");
             reset();
+            resetForecast();
             change.setDisable(true);
             cityName.setText("");
         }

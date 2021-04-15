@@ -26,7 +26,7 @@ public class WeatherService {
         this.city = city;
     }
 
-    public void getWeatherConnection() throws IOException {
+    public void getWeatherConnection() {
         int day = 0;
         String apiBase = "http://api.openweathermap.org/data/2.5/weather?q=";
         String apiKey = "ad72e9d8b12ec118ba1fbd72827337fd";
@@ -51,13 +51,13 @@ public class WeatherService {
 
         //get the specific data from the json file
         specificJson = json.getJSONObject("main");
-        this.pressure = specificJson.get("pressure").toString();
-        this.temperature = specificJson.getInt("temp");
-        this.humidity = specificJson.get("humidity").toString();
+        pressure = specificJson.get("pressure").toString();
+        temperature = specificJson.getInt("temp");
+        humidity = specificJson.get("humidity").toString();
         specificJson = json.getJSONObject("wind");
-        this.windSpeed = specificJson.get("speed").toString();
+        windSpeed = specificJson.get("speed").toString();
         specificJson = json.getJSONObject("clouds");
-        this.cloudiness = specificJson.get("all").toString();
+        cloudiness = specificJson.get("all").toString();
 
         calendar.add(Calendar.DATE, day);
         this.day = dateFormat.format(calendar.getTime());
@@ -68,6 +68,7 @@ public class WeatherService {
 
 
     }
+
 
     //Build a String from the read Json file
     private String readAll(Reader rd) throws IOException {
@@ -131,4 +132,6 @@ public class WeatherService {
     public String getCloudiness() {
         return cloudiness;
     }
+
+
 }

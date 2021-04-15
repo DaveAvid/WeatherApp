@@ -1,5 +1,6 @@
 package com.orange.models;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -7,37 +8,35 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
+import java.util.Date;
 
 public class ForecastService {
     private String city;
-    private String day;
-    private int temperature;
+    private String epochDay;
+    private double temperature;
     private String icon;
-    private String windSpeed;
-    private String pressure;
-    private String humidity;
-    private String cloudiness;
     private String description;
+    private Date newDate;
+    private String specificDay;
 
     public ForecastService(String city) {
         this.city = city;
     }
 
-    public void getWeatherConnection() throws IOException {
+    public void getForecastConnection() {
         int day = 0;
         String apiBase = "http://api.openweathermap.org/data/2.5/forecast?q=";
-        String apiKey = "ad72e9d8b12ec118ba1fbd72827337fd";
+        String apiKey = "d0667dee227692564c03511ba5482dee";
         String units = "imperial";
         String lang = "en";
 
 
         JSONObject json;
         JSONObject specificJson;
+        JSONArray jsonArray;
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE", Locale.ENGLISH);
+
         Calendar calendar = Calendar.getInstance();
 
         //Connects to the API to the json file
@@ -50,22 +49,25 @@ public class ForecastService {
         }
 
         //get the specific data from the json file
-        specificJson = json.getJSONObject("main");
-        this.pressure = specificJson.get("pressure").toString();
-        this.temperature = specificJson.getInt("temp");
-        this.humidity = specificJson.get("humidity").toString();
-        specificJson = json.getJSONObject("wind");
-        this.windSpeed = specificJson.get("speed").toString();
-        specificJson = json.getJSONObject("clouds");
-        this.cloudiness = specificJson.get("all").toString();
 
-        calendar.add(Calendar.DATE, day);
-        this.day = dateFormat.format(calendar.getTime());
+        jsonArray = json.getJSONArray("list");
+        for (int i = 0; i < jsonArray.length(); i += 3) {
+            specificJson = jsonArray.getJSONObject(i);
+            temperature = specificJson.getJSONObject("main").getDouble("temp");
+            specificJson = json.getJSONArray("list").getJSONObject(i);
+            epochDay = specificJson.get("dt").toString();
+            calendar.add(Calendar.DATE, day);
+            long epoch = Long.parseLong(epochDay);
+            newDate = new Date(epoch * 1000);
+            String[] pullDay = newDate.toString().split(" ");
+            specificDay = pullDay[0];
 
-        specificJson = json.getJSONArray("weather").getJSONObject(0);
-        this.description = specificJson.get("description").toString();
-        this.icon = specificJson.get("icon").toString();
-
+            specificJson = jsonArray.getJSONObject(i);
+            jsonArray = specificJson.getJSONArray("weather");
+            specificJson = jsonArray.getJSONObject(i);
+            description = specificJson.getString("description");
+            icon = specificJson.get("icon").toString();
+        }
 
     }
 
@@ -92,6 +94,14 @@ public class ForecastService {
         }
     }
 
+    public String getSpecificDay() {
+        return specificDay;
+    }
+
+    public Date getNewDate() {
+        return newDate;
+    }
+
     public String getCity() {
         return city;
     }
@@ -104,11 +114,11 @@ public class ForecastService {
         return description;
     }
 
-    public String getDay() {
-        return day;
+    public String getEpochDay() {
+        return epochDay;
     }
 
-    public int getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
@@ -116,20 +126,6 @@ public class ForecastService {
         return icon;
     }
 
-    public String getWindSpeed() {
-        return windSpeed;
-    }
 
-    public String getPressure() {
-        return pressure;
-    }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-    public String getCloudiness() {
-        return cloudiness;
-    }
 }
 

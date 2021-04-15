@@ -51,23 +51,23 @@ public class ForecastService {
         //get the specific data from the json file
 
         jsonArray = json.getJSONArray("list");
-        for (int i = 0; i < jsonArray.length(); i += 3) {
-            specificJson = jsonArray.getJSONObject(i);
-            temperature = specificJson.getJSONObject("main").getDouble("temp");
-            specificJson = json.getJSONArray("list").getJSONObject(i);
-            epochDay = specificJson.get("dt").toString();
-            calendar.add(Calendar.DATE, day);
-            long epoch = Long.parseLong(epochDay);
-            newDate = new Date(epoch * 1000);
-            String[] pullDay = newDate.toString().split(" ");
-            specificDay = pullDay[0];
+//        for (int i = 1; i < jsonArray.length(); i += 3) {
+        specificJson = jsonArray.getJSONObject(1);
+        temperature = specificJson.getJSONObject("main").getDouble("temp");
+        specificJson = jsonArray.getJSONObject(1);
+        specificDay = specificJson.get("dt_txt").toString();
+//        calendar.add(Calendar.DATE, day);
+//        long epoch = Long.parseLong(epochDay);
+//        newDate = new Date(epoch * 1000);
+        String[] pullDay = specificDay.split(" ");
+        specificDay = pullDay[0];
 
-            specificJson = jsonArray.getJSONObject(i);
-            jsonArray = specificJson.getJSONArray("weather");
-            specificJson = jsonArray.getJSONObject(i);
-            description = specificJson.getString("description");
-            icon = specificJson.get("icon").toString();
-        }
+        specificJson = jsonArray.getJSONObject(1);
+        jsonArray = specificJson.getJSONArray("weather");
+        specificJson = jsonArray.getJSONObject(0);
+        description = specificJson.getString("description");
+        icon = specificJson.get("icon").toString();
+//        }
 
     }
 

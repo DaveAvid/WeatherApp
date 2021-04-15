@@ -33,7 +33,7 @@ public class Controller implements Initializable {
     @FXML
     private Label city, temperature, day, description, errors, windSpeed, cloudiness, pressure, humidity;
     @FXML
-    private Label forecastCity, forecastDay, forecastTemperature, forecastDescription;
+    private Label forecastDay, forecastTemperature, forecastDescription;
 
 
     //Constructor to set the initial city to Minneapolis

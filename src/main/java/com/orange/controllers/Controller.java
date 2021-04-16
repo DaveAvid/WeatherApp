@@ -25,7 +25,7 @@ public class Controller implements Initializable {
     String citySet;
 
     @FXML
-    private ImageView img, forecastImg;
+    private ImageView img, forecastImg, forecastImg2, forecastImg3, forecastImg4, forecastImg5;
     @FXML
     private JFXButton change, set, cancel;
     @FXML
@@ -33,7 +33,9 @@ public class Controller implements Initializable {
     @FXML
     private Label city, temperature, day, description, errors, windSpeed, cloudiness, pressure, humidity;
     @FXML
-    private Label forecastDay, forecastTemperature, forecastDescription;
+    private Label forecastDay, forecastTemperature, forecastDescription, forecastDay2, forecastTemperature2, forecastDescription2,
+            forecastDay3, forecastTemperature3, forecastDescription3, forecastDay4, forecastTemperature4, forecastDescription4,
+            forecastDay5, forecastTemperature5, forecastDescription5;
 
 
     //Constructor to set the initial city to Minneapolis
@@ -92,6 +94,7 @@ public class Controller implements Initializable {
                 errors.setText("");
                 this.citySet = cityName.getText().trim().toUpperCase();
                 weatherService.setCity(this.citySet);
+                forecastService.setCity(this.citySet);
                 cityName.setText((this.citySet.toUpperCase()));
                 weatherService.getWeatherConnection();
                 forecastService.getForecastConnection();
@@ -161,6 +164,27 @@ public class Controller implements Initializable {
         forecastDay.setText(forecastService.getSpecificDay());
         forecastDescription.setText(forecastService.getDescription().toUpperCase());
         forecastImg.setImage(new Image(ImageManager.getImage(forecastService.getIcon())));
+
+        forecastTemperature2.setText(forecastService.getTemperature2() + "°F");
+        forecastDay2.setText(forecastService.getSpecificDay2());
+        forecastDescription2.setText(forecastService.getDescription2().toUpperCase());
+        forecastImg2.setImage(new Image(ImageManager.getImage(forecastService.getIcon2())));
+
+        forecastTemperature3.setText(forecastService.getTemperature3() + "°F");
+        forecastDay3.setText(forecastService.getSpecificDay3());
+        forecastDescription3.setText(forecastService.getDescription3().toUpperCase());
+        forecastImg3.setImage(new Image(ImageManager.getImage(forecastService.getIcon3())));
+
+        forecastTemperature4.setText(forecastService.getTemperature4() + "°F");
+        forecastDay4.setText(forecastService.getSpecificDay4());
+        forecastDescription4.setText(forecastService.getDescription4().toUpperCase());
+        forecastImg4.setImage(new Image(ImageManager.getImage(forecastService.getIcon4())));
+
+        forecastTemperature5.setText(forecastService.getTemperature5() + "°F");
+        forecastDay5.setText(forecastService.getSpecificDay5());
+        forecastDescription5.setText(forecastService.getDescription5().toUpperCase());
+        forecastImg5.setImage(new Image(ImageManager.getImage(forecastService.getIcon5())));
+
     }
 
     public void initialize(URL location, ResourceBundle resources) {

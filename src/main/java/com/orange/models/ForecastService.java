@@ -9,16 +9,13 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.Calendar;
-import java.util.Date;
 
 public class ForecastService {
     private String city;
-    private String epochDay;
-    private double temperature;
-    private String icon;
-    private String description;
-    private Date newDate;
-    private String specificDay;
+    private double temperature, temperature2, temperature3, temperature4, temperature5;
+    private String icon, icon2, icon3, icon4, icon5;
+    private String description, description2, description3, description4, description5;
+    private String specificDay, specificDay2, specificDay3, specificDay4, specificDay5;
 
     public ForecastService(String city) {
         this.city = city;
@@ -35,7 +32,7 @@ public class ForecastService {
         JSONObject json;
         JSONObject specificJson;
         JSONArray jsonArray;
-
+        JSONArray jsonArray2;
 
         Calendar calendar = Calendar.getInstance();
 
@@ -49,26 +46,70 @@ public class ForecastService {
         }
 
         //get the specific data from the json file
-
         jsonArray = json.getJSONArray("list");
-//        for (int i = 1; i < jsonArray.length(); i += 3) {
         specificJson = jsonArray.getJSONObject(1);
         temperature = specificJson.getJSONObject("main").getDouble("temp");
         specificJson = jsonArray.getJSONObject(1);
         specificDay = specificJson.get("dt_txt").toString();
-//        calendar.add(Calendar.DATE, day);
-//        long epoch = Long.parseLong(epochDay);
-//        newDate = new Date(epoch * 1000);
         String[] pullDay = specificDay.split(" ");
         specificDay = pullDay[0];
-
         specificJson = jsonArray.getJSONObject(1);
-        jsonArray = specificJson.getJSONArray("weather");
-        specificJson = jsonArray.getJSONObject(0);
+        jsonArray2 = specificJson.getJSONArray("weather");
+        specificJson = jsonArray2.getJSONObject(0);
         description = specificJson.getString("description");
         icon = specificJson.get("icon").toString();
-//        }
 
+        jsonArray = json.getJSONArray("list");
+        specificJson = jsonArray.getJSONObject(6);
+        temperature2 = specificJson.getJSONObject("main").getDouble("temp");
+        specificJson = jsonArray.getJSONObject(6);
+        specificDay2 = specificJson.get("dt_txt").toString();
+        String[] pullDay2 = specificDay2.split(" ");
+        specificDay2 = pullDay2[0];
+        specificJson = jsonArray.getJSONObject(6);
+        jsonArray2 = specificJson.getJSONArray("weather");
+        specificJson = jsonArray2.getJSONObject(0);
+        description2 = specificJson.getString("description");
+        icon2 = specificJson.get("icon").toString();
+
+        jsonArray = json.getJSONArray("list");
+        specificJson = jsonArray.getJSONObject(14);
+        temperature3 = specificJson.getJSONObject("main").getDouble("temp");
+        specificJson = jsonArray.getJSONObject(14);
+        specificDay3 = specificJson.get("dt_txt").toString();
+        String[] pullDay3 = specificDay3.split(" ");
+        specificDay3 = pullDay3[0];
+        specificJson = jsonArray.getJSONObject(14);
+        jsonArray2 = specificJson.getJSONArray("weather");
+        specificJson = jsonArray2.getJSONObject(0);
+        description3 = specificJson.getString("description");
+        icon3 = specificJson.get("icon").toString();
+
+        jsonArray = json.getJSONArray("list");
+        specificJson = jsonArray.getJSONObject(22);
+        temperature4 = specificJson.getJSONObject("main").getDouble("temp");
+        specificJson = jsonArray.getJSONObject(22);
+        specificDay4 = specificJson.get("dt_txt").toString();
+        String[] pullDay4 = specificDay4.split(" ");
+        specificDay4 = pullDay4[0];
+        specificJson = jsonArray.getJSONObject(22);
+        jsonArray2 = specificJson.getJSONArray("weather");
+        specificJson = jsonArray2.getJSONObject(0);
+        description4 = specificJson.getString("description");
+        icon4 = specificJson.get("icon").toString();
+
+        jsonArray = json.getJSONArray("list");
+        specificJson = jsonArray.getJSONObject(30);
+        temperature5 = specificJson.getJSONObject("main").getDouble("temp");
+        specificJson = jsonArray.getJSONObject(30);
+        specificDay5 = specificJson.get("dt_txt").toString();
+        String[] pullDay5 = specificDay5.split(" ");
+        specificDay5 = pullDay5[0];
+        specificJson = jsonArray.getJSONObject(30);
+        jsonArray2 = specificJson.getJSONArray("weather");
+        specificJson = jsonArray2.getJSONObject(0);
+        description5 = specificJson.getString("description");
+        icon5 = specificJson.get("icon").toString();
     }
 
     //Build a String from the read Json file
@@ -98,10 +139,6 @@ public class ForecastService {
         return specificDay;
     }
 
-    public Date getNewDate() {
-        return newDate;
-    }
-
     public String getCity() {
         return city;
     }
@@ -114,9 +151,6 @@ public class ForecastService {
         return description;
     }
 
-    public String getEpochDay() {
-        return epochDay;
-    }
 
     public double getTemperature() {
         return temperature;
@@ -126,6 +160,68 @@ public class ForecastService {
         return icon;
     }
 
+    public double getTemperature2() {
+        return temperature2;
+    }
 
+    public double getTemperature3() {
+        return temperature3;
+    }
+
+    public double getTemperature4() {
+        return temperature4;
+    }
+
+    public double getTemperature5() {
+        return temperature5;
+    }
+
+    public String getIcon2() {
+        return icon2;
+    }
+
+    public String getIcon3() {
+        return icon3;
+    }
+
+    public String getIcon4() {
+        return icon4;
+    }
+
+    public String getIcon5() {
+        return icon5;
+    }
+
+    public String getDescription2() {
+        return description2;
+    }
+
+    public String getDescription3() {
+        return description3;
+    }
+
+    public String getDescription4() {
+        return description4;
+    }
+
+    public String getDescription5() {
+        return description5;
+    }
+
+    public String getSpecificDay2() {
+        return specificDay2;
+    }
+
+    public String getSpecificDay3() {
+        return specificDay3;
+    }
+
+    public String getSpecificDay4() {
+        return specificDay4;
+    }
+
+    public String getSpecificDay5() {
+        return specificDay5;
+    }
 }
 

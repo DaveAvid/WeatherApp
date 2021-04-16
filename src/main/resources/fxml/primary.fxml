@@ -2,8 +2,7 @@
 
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0"
@@ -42,22 +41,118 @@
 
             <children>
                 <Pane fx:id="forecast1" layoutX="1.0" layoutY="1.0" prefHeight="300.0" prefWidth="200.0">
-                    <Label fx:id="forecastDay" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0"
+                    <Label fx:id="forecastDay" layoutX="50.0" layoutY="10.0" prefHeight="40.0"
                            prefWidth="168.0" text="DAY" textFill="WHITE">
                         <font>
                             <Font name="System Bold" size="15.0"/>
                         </font>
                     </Label>
-                    <Label fx:id="forecastTemperature" alignment="CENTER" layoutX="107.0" layoutY="348.0"
-                           prefHeight="58.0"
-                           prefWidth="123.0" text="60" textFill="#78ffc4">
+                    <Label fx:id="forecastTemperature" layoutX="50.0" layoutY="140.0"
+                           prefHeight="30.0"
+                           prefWidth="80.0" text="50" textFill="#78ffc4">
                         <font>
-                            <Font name="System Bold" size="40.0"/>
+                            <Font name="System Bold" size="18.0"/>
                         </font>
                     </Label>
-                    <ImageView fx:id="forecastImg" fitHeight="100.0" fitWidth="100.0" layoutX="40.0" layoutY="60.0"
+                    <ImageView fx:id="forecastImg" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0"
                                pickOnBounds="true" preserveRatio="true"/>
-                    <Label fx:id="forecastDescription" alignment="CENTER" layoutX="1.0" layoutY="160.0"
+                    <Label fx:id="forecastDescription" layoutX="50.0" layoutY="160.0"
+                           prefHeight="40.0"
+                           prefWidth="234.0" text="Description" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                </Pane>
+                <Pane fx:id="forecast2" layoutX="100.0" layoutY="1.0" prefHeight="300.0" prefWidth="200.0">
+                    <Label fx:id="forecastDay2" layoutX="150.0" layoutY="10.0" prefHeight="40.0"
+                           prefWidth="168.0" text="DAY" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="forecastTemperature2" layoutX="150.0" layoutY="140.0"
+                           prefHeight="30.0"
+                           prefWidth="80.0" text="50" textFill="#78ffc4">
+                        <font>
+                            <Font name="System Bold" size="18.0"/>
+                        </font>
+                    </Label>
+                    <ImageView fx:id="forecastImg2" fitHeight="100.0" fitWidth="100.0" layoutX="150.0" layoutY="50.0"
+                               pickOnBounds="true" preserveRatio="true"/>
+                    <Label fx:id="forecastDescription2" layoutX="150.0" layoutY="160.0"
+                           prefHeight="40.0"
+                           prefWidth="234.0" text="Description" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                </Pane>
+                <Pane fx:id="forecast3" layoutX="100.0" layoutY="1.0" prefHeight="300.0" prefWidth="200.0">
+                    <Label fx:id="forecastDay3" layoutX="350.0" layoutY="10.0" prefHeight="40.0"
+                           prefWidth="168.0" text="DAY" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="forecastTemperature3" layoutX="350.0" layoutY="140.0"
+                           prefHeight="30.0"
+                           prefWidth="80.0" text="50" textFill="#78ffc4">
+                        <font>
+                            <Font name="System Bold" size="18.0"/>
+                        </font>
+                    </Label>
+                    <ImageView fx:id="forecastImg3" fitHeight="100.0" fitWidth="100.0" layoutX="350.0" layoutY="50.0"
+                               pickOnBounds="true" preserveRatio="true"/>
+                    <Label fx:id="forecastDescription3" layoutX="350.0" layoutY="160.0"
+                           prefHeight="40.0"
+                           prefWidth="234.0" text="Description" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                </Pane>
+                <Pane fx:id="forecast4" layoutX="100.0" layoutY="1.0" prefHeight="300.0" prefWidth="200.0">
+                    <Label fx:id="forecastDay4" layoutX="550.0" layoutY="10.0" prefHeight="40.0"
+                           prefWidth="168.0" text="DAY" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="forecastTemperature4" layoutX="550.0" layoutY="140.0"
+                           prefHeight="30.0"
+                           prefWidth="80.0" text="50" textFill="#78ffc4">
+                        <font>
+                            <Font name="System Bold" size="18.0"/>
+                        </font>
+                    </Label>
+                    <ImageView fx:id="forecastImg4" fitHeight="100.0" fitWidth="100.0" layoutX="550.0" layoutY="50.0"
+                               pickOnBounds="true" preserveRatio="true"/>
+                    <Label fx:id="forecastDescription4" layoutX="550.0" layoutY="160.0"
+                           prefHeight="40.0"
+                           prefWidth="234.0" text="Description" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                </Pane>
+                <Pane fx:id="forecast5" layoutX="100.0" layoutY="1.0" prefHeight="300.0" prefWidth="200.0">
+                    <Label fx:id="forecastDay5" layoutX="750.0" layoutY="10.0" prefHeight="40.0"
+                           prefWidth="168.0" text="DAY" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="forecastTemperature5" layoutX="750.0" layoutY="140.0"
+                           prefHeight="30.0"
+                           prefWidth="80.0" text="50" textFill="#78ffc4">
+                        <font>
+                            <Font name="System Bold" size="18.0"/>
+                        </font>
+                    </Label>
+                    <ImageView fx:id="forecastImg5" fitHeight="100.0" fitWidth="100.0" layoutX="750.0" layoutY="50.0"
+                               pickOnBounds="true" preserveRatio="true"/>
+                    <Label fx:id="forecastDescription5" layoutX="750.0" layoutY="160.0"
                            prefHeight="40.0"
                            prefWidth="234.0" text="Description" textFill="WHITE">
                         <font>

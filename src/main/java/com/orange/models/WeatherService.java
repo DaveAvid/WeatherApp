@@ -48,6 +48,17 @@ public class WeatherService {
         } catch (Exception e) {
             return;
         }
+        String jsonString = json.toString();
+        System.out.println(jsonString);
+
+        //next, saves the file:
+        PrintWriter out1 = null;
+        try {
+            out1 = new PrintWriter(new FileWriter("json.txt"));
+            out1.write(jsonString);
+        } catch (Exception ex) {
+            System.out.println("error: " + ex.toString());
+        }
 
         //get the specific data from the json file
         specificJson = json.getJSONObject("main");

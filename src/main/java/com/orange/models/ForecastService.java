@@ -112,6 +112,7 @@ public class ForecastService {
         icon5 = specificJson.get("icon").toString();
     }
 
+
     //Build a String from the read Json file
     private String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();

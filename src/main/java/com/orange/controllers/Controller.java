@@ -15,9 +15,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.apache.commons.lang3.StringUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class Controller implements Initializable {
     ForecastService forecastService;
@@ -27,7 +31,7 @@ public class Controller implements Initializable {
     @FXML
     private ImageView img, forecastImg, forecastImg2, forecastImg3, forecastImg4, forecastImg5;
     @FXML
-    private JFXButton change, set, cancel;
+    private JFXButton change, set, cancel, preset1, preset2, preset3, setPreset1, setPreset2, setPreset3;
     @FXML
     private JFXTextField cityName, invis;
     @FXML
@@ -58,6 +62,18 @@ public class Controller implements Initializable {
             cityName.setText(initialCity);
             bottomSet(false);
             invis.requestFocus();
+        } else if (actionEvent.getSource() == setPreset1) {
+            setLocation(setPreset1);
+        } else if (actionEvent.getSource() == setPreset2) {
+            setLocation(setPreset2);
+        } else if (actionEvent.getSource() == setPreset3) {
+            setLocation(setPreset3);
+        } else if (actionEvent.getSource() == preset1) {
+            locationGrab(preset1.getText());
+        } else if (actionEvent.getSource() == preset2) {
+            locationGrab(preset2.getText());
+        } else if (actionEvent.getSource() == preset3) {
+            locationGrab(preset3.getText());
         }
     }
 
@@ -112,6 +128,59 @@ public class Controller implements Initializable {
             }
         }
     }
+
+    private void locationGrab(String city) {
+        weatherService.setCity(city);
+        forecastService.setCity(city);
+        showWeather();
+        showForecast();
+    }
+
+    private void setLocation(JFXButton pressed) {
+        //if user enters nothing into cityName field
+        if (cityName.getText().equals("")) {
+            showToast("City Name cannot be blank");
+            return;
+        } else {
+            try {
+                errors.setText("");
+                this.citySet = cityName.getText().trim().toUpperCase();
+                weatherService.setCity(this.citySet);
+                forecastService.setCity(this.citySet);
+                cityName.setText((this.citySet.toUpperCase()));
+                weatherService.getWeatherConnection();
+                forecastService.getForecastConnection();
+                if(pressed == setPreset1) {
+                    preset1.setText(citySet);
+                    weatherService.writeJsonLocation(weatherService.getJsonString(), "1");
+                } else if (pressed == setPreset2) {
+                    preset2.setText(citySet);
+                    weatherService.writeJsonLocation(weatherService.getJsonString(), "2");
+                } else if (pressed == setPreset3) {
+                    preset3.setText(citySet);
+                    weatherService.writeJsonLocation(weatherService.getJsonString(), "3");
+                }
+                bottomSet(false);
+                invis.requestFocus();
+            } catch (Exception e) {
+                city.setText("Error!!");
+                city.setTextFill(Color.TOMATO);
+                showToast("City with the given name was not found.");
+                reset();
+                resetForecast();
+                invis.requestFocus();
+            }
+        }
+        if(pressed == setPreset1) {
+            preset1.setText(citySet);
+        } else if (pressed == setPreset2) {
+            preset2.setText(citySet);
+        } else if (pressed == setPreset3) {
+            preset3.setText(citySet);
+        }
+    }
+
+
 
     //method to handle nodes at botton part of the scene
     private void bottomSet(boolean statement) {
@@ -187,7 +256,42 @@ public class Controller implements Initializable {
 
     }
 
+    public String readJsonLocation(String jsonString) {
+        String temp = null;
+        try {
+            File myObj = new File(jsonString);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                temp = StringUtils.remove(data, "{");
+                temp = StringUtils.remove(temp, "}");
+                String[] strArray = temp.split(",");
+                for (int i = 0; i < strArray.length; i++) {
+                    if(strArray[i].contains("name")) {
+                        temp = strArray[i];
+                    }
+                }
+                temp = StringUtils.remove(temp, "\"");
+                temp = StringUtils.remove(temp, "name:");
+                System.out.println(temp);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
+        String temp1 = readJsonLocation("jsonLocation1.txt");
+        preset1.setText(temp1);
+        String temp2 = readJsonLocation("jsonLocation2.txt");
+        preset2.setText(temp2);
+        String temp3 = readJsonLocation("jsonLocation3.txt");
+        preset3.setText(temp3);
+
+        citySet = temp1;
         cityName.setText(citySet);
         cityName.setDisable(true);
         set.setVisible(false);

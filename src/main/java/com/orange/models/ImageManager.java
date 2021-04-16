@@ -7,24 +7,24 @@ public class ImageManager {
             case "01d":
                 return "/images/day1.png";
             case "01n":
-                return "/images/night1.png";
+                return "/images/day1.png";
             case "02d":
                 return "/images/day2.png";
             case "02n":
-                return "/images/night2.png";
+                return "/images/day2.png";
             case "03d":
             case "03n":
                 return "/images/cloudy.png";
             case "04d":
             case "04n":
-                return "/images/cloudyNight.png";
+                return "/images/cloudy.png";
             case "09d":
             case "09n":
                 return "/images/cloudyRain.png";
             case "10d":
                 return "/images/partlySunnyRain.png";
             case "10n":
-                return "/images/nightRain.png";
+                return "/images/cloudyRain.png";
             case "11n":
             case "11d":
                 return "/images/thunderStorms.png";

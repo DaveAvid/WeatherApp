@@ -164,10 +164,16 @@
         </Pane>
         <Pane fx:id="saveState" layoutX="20.0" layoutY="900.0" prefHeight="50.0" prefWidth="1010.0">
             <children>
+                <JFXButton fx:id="setPreset1" layoutX="250" layoutY="15" onAction="#handleButtonClicks"
+                           style="-fx-background-radius: 10px; -fx-background-color: #ff6767;" text="Set"/>
                 <JFXButton fx:id="preset1" layoutX="300.0" layoutY="15.0" onAction="#handleButtonClicks"
                            style="-fx-background-color: #ff6767; -fx-background-radius: 10px;" text="Location 1"/>
+                <JFXButton fx:id="setPreset2" layoutX="450.0" layoutY="15.0" onAction="#handleButtonClicks"
+                           style="-fx-background-radius: 10px; -fx-background-color: #ff6767;" text="Set"/>
                 <JFXButton fx:id="preset2" layoutX="500.0" layoutY="15.0" onAction="#handleButtonClicks"
                            style="-fx-background-radius: 10px; -fx-background-color: #ff6767;" text="Location 2"/>
+                <JFXButton fx:id="setPreset3" layoutX="650.0" layoutY="15.0" onAction="#handleButtonClicks"
+                           style="-fx-background-radius: 10px; -fx-background-color: #ff6767;" text="Set"/>
                 <JFXButton fx:id="preset3" layoutX="700.0" layoutY="15.0" onAction="#handleButtonClicks"
                            style="-fx-background-radius: 10px; -fx-background-color: #ff6767;" text="Location 3"/>
             </children>

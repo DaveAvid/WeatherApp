@@ -1,5 +1,7 @@
 package com.orange.models;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -10,6 +12,7 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class WeatherService {
     private String city;
@@ -21,6 +24,7 @@ public class WeatherService {
     private String humidity;
     private String cloudiness;
     private String description;
+    private String jsonString;
 
     public WeatherService(String city) {
         this.city = city;
@@ -48,17 +52,8 @@ public class WeatherService {
         } catch (Exception e) {
             return;
         }
-        String jsonString = json.toString();
+        jsonString = json.toString();
         System.out.println(jsonString);
-
-        //next, saves the file:
-        PrintWriter out1 = null;
-        try {
-            out1 = new PrintWriter(new FileWriter("json.txt"));
-            out1.write(jsonString);
-        } catch (Exception ex) {
-            System.out.println("error: " + ex.toString());
-        }
 
         //get the specific data from the json file
         specificJson = json.getJSONObject("main");
@@ -80,6 +75,19 @@ public class WeatherService {
 
     }
 
+    public void writeJsonLocation(String jsonString, String location) throws IOException {
+        //next, saves the file:
+        FileWriter writer;
+        BufferedWriter buffer;
+        try {
+            writer = new FileWriter("jsonLocation" + location + ".txt");
+            buffer = new BufferedWriter(writer);
+            buffer.write(jsonString);
+            buffer.close();
+        } catch (Exception ex) {
+            System.out.println("error: " + ex.toString());
+        }
+    }
 
     //Build a String from the read Json file
     private String readAll(Reader rd) throws IOException {
@@ -103,6 +111,8 @@ public class WeatherService {
             is.close();
         }
     }
+
+    public String getJsonString() { return jsonString; }
 
     public String getCity() {
         return city;

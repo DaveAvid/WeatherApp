@@ -42,9 +42,9 @@ public class Controller implements Initializable {
             forecastDay5, forecastTemperature5, forecastDescription5;
 
 
-    //Constructor to set the initial city to Minneapolis
+    //Constructor to set the initial city to Rochester
     public Controller() {
-        this.citySet = "Rochester".toUpperCase();
+        citySet = "Rochester".toUpperCase();
     }
 
     //Event Handler for each button
@@ -69,11 +69,11 @@ public class Controller implements Initializable {
         } else if (actionEvent.getSource() == setPreset3) {
             setLocation(setPreset3);
         } else if (actionEvent.getSource() == preset1) {
-            locationGrab(preset1.getText());
+            locationGrab(preset1.getText().toUpperCase());
         } else if (actionEvent.getSource() == preset2) {
-            locationGrab(preset2.getText());
+            locationGrab(preset2.getText().toUpperCase());
         } else if (actionEvent.getSource() == preset3) {
-            locationGrab(preset3.getText());
+            locationGrab(preset3.getText().toUpperCase());
         }
     }
 
@@ -130,8 +130,8 @@ public class Controller implements Initializable {
     }
 
     private void locationGrab(String city) {
-        weatherService.setCity(city);
-        forecastService.setCity(city);
+        weatherService.setCity(city.toUpperCase());
+        forecastService.setCity(city.toUpperCase());
         showWeather();
         showForecast();
     }
@@ -144,20 +144,20 @@ public class Controller implements Initializable {
         } else {
             try {
                 errors.setText("");
-                this.citySet = cityName.getText().trim().toUpperCase();
+                citySet = cityName.getText().trim().toUpperCase();
                 weatherService.setCity(this.citySet);
                 forecastService.setCity(this.citySet);
                 cityName.setText((this.citySet.toUpperCase()));
                 weatherService.getWeatherConnection();
                 forecastService.getForecastConnection();
-                if(pressed == setPreset1) {
-                    preset1.setText(citySet);
+                if (pressed == setPreset1) {
+                    preset1.setText(citySet.toUpperCase());
                     weatherService.writeJsonLocation(weatherService.getJsonString(), "1");
                 } else if (pressed == setPreset2) {
-                    preset2.setText(citySet);
+                    preset2.setText(citySet.toUpperCase());
                     weatherService.writeJsonLocation(weatherService.getJsonString(), "2");
                 } else if (pressed == setPreset3) {
-                    preset3.setText(citySet);
+                    preset3.setText(citySet.toUpperCase());
                     weatherService.writeJsonLocation(weatherService.getJsonString(), "3");
                 }
                 bottomSet(false);
@@ -171,15 +171,14 @@ public class Controller implements Initializable {
                 invis.requestFocus();
             }
         }
-        if(pressed == setPreset1) {
-            preset1.setText(citySet);
+        if (pressed == setPreset1) {
+            preset1.setText(citySet.toUpperCase());
         } else if (pressed == setPreset2) {
-            preset2.setText(citySet);
+            preset2.setText(citySet.toUpperCase());
         } else if (pressed == setPreset3) {
-            preset3.setText(citySet);
+            preset3.setText(citySet.toUpperCase());
         }
     }
-
 
 
     //method to handle nodes at botton part of the scene
@@ -267,7 +266,7 @@ public class Controller implements Initializable {
                 temp = StringUtils.remove(temp, "}");
                 String[] strArray = temp.split(",");
                 for (int i = 0; i < strArray.length; i++) {
-                    if(strArray[i].contains("name")) {
+                    if (strArray[i].contains("name")) {
                         temp = strArray[i];
                     }
                 }
@@ -285,20 +284,20 @@ public class Controller implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         String temp1 = readJsonLocation("jsonLocation1.txt");
-        preset1.setText(temp1);
+        preset1.setText(temp1.toUpperCase());
         String temp2 = readJsonLocation("jsonLocation2.txt");
-        preset2.setText(temp2);
+        preset2.setText(temp2.toUpperCase());
         String temp3 = readJsonLocation("jsonLocation3.txt");
-        preset3.setText(temp3);
+        preset3.setText(temp3.toUpperCase());
 
         citySet = temp1;
-        cityName.setText(citySet);
+        cityName.setText(citySet.toUpperCase());
         cityName.setDisable(true);
         set.setVisible(false);
         cancel.setVisible(false);
         errors.setText("");
-        weatherService = new WeatherService(citySet);
-        forecastService = new ForecastService(citySet);
+        weatherService = new WeatherService(citySet.toUpperCase());
+        forecastService = new ForecastService(citySet.toUpperCase());
         invis.requestFocus();
 
         //try catch block to see if there is internet and disabling every field

@@ -1,7 +1,5 @@
 package com.orange.models;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,7 +10,6 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.Scanner;
 
 public class WeatherService {
     private String city;
@@ -112,7 +109,9 @@ public class WeatherService {
         }
     }
 
-    public String getJsonString() { return jsonString; }
+    public String getJsonString() {
+        return jsonString;
+    }
 
     public String getCity() {
         return city;

@@ -13,7 +13,7 @@ public class MainApplication extends Application {
 
     @SuppressWarnings("restriction")
     @Override
-    public void start(Stage primaryStage) throws LoadException {
+    public void start(Stage primaryStage) {
 
         try {
             Parent root = FXMLLoader.load(MainApplication.class.getResource("/fxml/primary.fxml"));

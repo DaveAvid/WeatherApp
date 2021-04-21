@@ -181,7 +181,7 @@ public class Controller implements Initializable {
     }
 
 
-    //method to handle nodes at botton part of the scene
+    //method to handle nodes at mid/botton part of the scene
     private void bottomSet(boolean statement) {
         cityName.setDisable(!statement);
         set.setVisible(statement);
@@ -226,32 +226,33 @@ public class Controller implements Initializable {
         humidity.setText(weatherService.getHumidity() + "%");
     }
 
+    //actual to call and get weather from our forecast api call
     public void showForecast() {
         forecastService.getForecastConnection();
-        forecastTemperature.setText(forecastService.getTemperature() + "°F");
-        forecastDay.setText(forecastService.getSpecificDay());
-        forecastDescription.setText(forecastService.getDescription().toUpperCase());
-        forecastImg.setImage(new Image(ImageManager.getImage(forecastService.getIcon())));
+        forecastTemperature.setText(forecastService.getForecastList().get(0).getTemperature() + "°F");
+        forecastDay.setText(forecastService.getForecastList().get(0).getSpecificDay());
+        forecastDescription.setText(forecastService.getForecastList().get(0).getDescription());
+        forecastImg.setImage(new Image(ImageManager.getImage(forecastService.getForecastList().get(0).getIcon())));
 
-        forecastTemperature2.setText(forecastService.getTemperature2() + "°F");
-        forecastDay2.setText(forecastService.getSpecificDay2());
-        forecastDescription2.setText(forecastService.getDescription2().toUpperCase());
-        forecastImg2.setImage(new Image(ImageManager.getImage(forecastService.getIcon2())));
+        forecastTemperature2.setText(forecastService.getForecastList().get(1).getTemperature() + "°F");
+        forecastDay2.setText(forecastService.getForecastList().get(1).getSpecificDay());
+        forecastDescription2.setText(forecastService.getForecastList().get(1).getDescription());
+        forecastImg2.setImage(new Image(ImageManager.getImage(forecastService.getForecastList().get(1).getIcon())));
 
-        forecastTemperature3.setText(forecastService.getTemperature3() + "°F");
-        forecastDay3.setText(forecastService.getSpecificDay3());
-        forecastDescription3.setText(forecastService.getDescription3().toUpperCase());
-        forecastImg3.setImage(new Image(ImageManager.getImage(forecastService.getIcon3())));
+        forecastTemperature3.setText(forecastService.getForecastList().get(2).getTemperature() + "°F");
+        forecastDay3.setText(forecastService.getForecastList().get(2).getSpecificDay());
+        forecastDescription3.setText(forecastService.getForecastList().get(2).getDescription());
+        forecastImg3.setImage(new Image(ImageManager.getImage(forecastService.getForecastList().get(2).getIcon())));
 
-        forecastTemperature4.setText(forecastService.getTemperature4() + "°F");
-        forecastDay4.setText(forecastService.getSpecificDay4());
-        forecastDescription4.setText(forecastService.getDescription4().toUpperCase());
-        forecastImg4.setImage(new Image(ImageManager.getImage(forecastService.getIcon4())));
+        forecastTemperature4.setText(forecastService.getForecastList().get(3).getTemperature() + "°F");
+        forecastDay4.setText(forecastService.getForecastList().get(3).getSpecificDay());
+        forecastDescription4.setText(forecastService.getForecastList().get(3).getDescription());
+        forecastImg4.setImage(new Image(ImageManager.getImage(forecastService.getForecastList().get(3).getIcon())));
 
-        forecastTemperature5.setText(forecastService.getTemperature5() + "°F");
-        forecastDay5.setText(forecastService.getSpecificDay5());
-        forecastDescription5.setText(forecastService.getDescription5().toUpperCase());
-        forecastImg5.setImage(new Image(ImageManager.getImage(forecastService.getIcon5())));
+        forecastTemperature5.setText(forecastService.getForecastList().get(4).getTemperature() + "°F");
+        forecastDay5.setText(forecastService.getForecastList().get(4).getSpecificDay());
+        forecastDescription5.setText(forecastService.getForecastList().get(4).getDescription());
+        forecastImg5.setImage(new Image(ImageManager.getImage(forecastService.getForecastList().get(4).getIcon())));
 
     }
 

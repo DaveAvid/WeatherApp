@@ -36,7 +36,7 @@ public class WeatherService {
 
 
         JSONObject json;
-        JSONObject specificJson;
+        JSONObject specificJsonElement;
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE", Locale.ENGLISH);
         Calendar calendar = Calendar.getInstance();
@@ -53,21 +53,21 @@ public class WeatherService {
         System.out.println(jsonString);
 
         //get the specific data from the json file
-        specificJson = json.getJSONObject("main");
-        pressure = specificJson.get("pressure").toString();
-        temperature = specificJson.getInt("temp");
-        humidity = specificJson.get("humidity").toString();
-        specificJson = json.getJSONObject("wind");
-        windSpeed = specificJson.get("speed").toString();
-        specificJson = json.getJSONObject("clouds");
-        cloudiness = specificJson.get("all").toString();
+        specificJsonElement = json.getJSONObject("main");
+        pressure = specificJsonElement.get("pressure").toString();
+        temperature = specificJsonElement.getInt("temp");
+        humidity = specificJsonElement.get("humidity").toString();
+        specificJsonElement = json.getJSONObject("wind");
+        windSpeed = specificJsonElement.get("speed").toString();
+        specificJsonElement = json.getJSONObject("clouds");
+        cloudiness = specificJsonElement.get("all").toString();
 
         calendar.add(Calendar.DATE, day);
         this.day = dateFormat.format(calendar.getTime());
 
-        specificJson = json.getJSONArray("weather").getJSONObject(0);
-        this.description = specificJson.get("description").toString();
-        this.icon = specificJson.get("icon").toString();
+        specificJsonElement = json.getJSONArray("weather").getJSONObject(0);
+        this.description = specificJsonElement.get("description").toString();
+        this.icon = specificJsonElement.get("icon").toString();
 
 
     }
